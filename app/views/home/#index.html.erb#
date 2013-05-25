@@ -1,0 +1,19 @@
+<html>
+l: "localhost:12000/", // must be a full URL
+        userStatusUrl: "userStatus", // these can just be partial paths
+        loginUrl: "/login",
+        signupUrl: "signup",
+        homeUrl: "home",
+        logoutUrl: "logout",
+        realm: "", // optional
+        language: "en",
+        idps: ["Gmail", "AOL", "Hotmail", "Yahoo"],
+        tryFederatedFirst: true,
+        useCachedUserStatus: false
+    });
+    jQuery('#navbar').accountChooser();
+  }
+</script>
+<script type="text/javascript" src="https://apis.google.com/js/client.js?onload=load"></script>
+</head>
+</html>

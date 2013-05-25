@@ -1,0 +1,83 @@
+<h1>Listing entries</h1>
+
+
+
+<form>
+Enter the place name : <input type="text" name="place" >
+<input type="submit" value="Submit">
+</form>
+
+<% if @place.present?%>
+<h2><%= @place.place%> Longitude:<%= @place.lng%> Latitude:<%= @place.lat%> </h2>
+<% else %>
+   <%if params[:place].present?%>
+   <h2 id='Ap'>Sorry, the record you are loking for is not pressent in the Database Press the buttoin to see it using Google Api</h2>
+   <button onclick="tes()">Button</button>
+   <% end %>
+<% end %>
+
+<table>
+  <tr>
+    <th>Place</th>
+    <th>Lng</th>
+    <th>Lat</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @entries.each do |entry| %>
+  <tr>
+    <td><%= entry.place %></td>
+    <td><%= entry.lng %></td>
+    <td><%= entry.lat %></td>
+    <td><%= link_to 'Show', entry %></td>
+    <td><%= link_to 'Edit', edit_entry_path(entry) %></td>
+    <td><%= link_to 'Destroy', entry, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br/>
+
+<%= link_to 'New Entry', new_entry_path %>
+
+
+
+<script type="text/javascript">
+function tes(){
+var latt
+var long
+ $.ajax({
+    url: 'http://maps.googleapis.com/maps/api/geocode/json?address=<%= params[:place]%>&sensor=false',
+    dataType: "json",
+    success: function(response) {    
+    latt=response.results[0].geometry.location.lat;
+    long=response.results[0].geometry.location.lng;
+    ress(latt,latt); 
+
+    }
+ });
+}
+
+function ress(long,latt){
+
+document.getElementById('Ap').innerHTML= "<%= params[:place]%>"+" Longitude : "+long+" Latitude :"+latt;
+
+$.ajax({
+  url: "/entries/",
+  type: "POST",
+    data:{entry:{
+        place: "<%= params[:place]%>",
+        lng: long,
+        lat: latt
+       } 
+      },
+dataType : "text",
+  success: function() { alert("ok");
+  } 
+});
+
+}
+</script>
+
