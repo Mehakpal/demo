@@ -12,7 +12,7 @@
   <% end %>
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.text_field :email, :value => "#{params[:email]}" %>
+    <%= f.text_field :email, :value => "#{session[:eml]}" %>
   </div>
   <div class="field">
     <%= f.label :username %><br />
