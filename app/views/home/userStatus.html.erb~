@@ -1,0 +1,10 @@
+<script type="text/javascript" src="https://ajax.googleapis.com/jsapi"\
+></script>
+<script type="text/javascript" src="https://www.accountchooser.com/cli\
+ent.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/l\
+ibs/jquery/1.7.2/jquery.min.js"></script>
+<script type='text/javascript'>
+  google.load('identitytoolkit', '2', {packages: ['store']});
+</script>
+

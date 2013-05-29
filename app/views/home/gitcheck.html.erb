@@ -4,16 +4,16 @@
 <script type="text/javascript" src="https://www.accountchooser.com/client.js"></script>
 <script type="text/javascript">
   function load() {
-    google.load("identitytoolkit", "2", {packages: ["ac"], callback: callback});
+    google.load("identitytoolkit", "2", {packages: ["ac"], language:"en", callback: callback});
   }
   function callback() {
     window.google.identitytoolkit.setConfig({
         developerKey: "AIzaSyDn47xvodDSO2Vt_G3Ozj95mKDIO_Fkdxk",
-        callbackUrl: "http://agile-meadow-9437.herokuapp.com/oauth2callback", // must be a full URL
+        callbackUrl: "http://localhost:3000/oauth2callback", // must be a full URL
         userStatusUrl: "/userStatus", // these can just be partial paths
         loginUrl: "/login",
         signupUrl: "/signup",
-        homeUrl: "/home",
+        homeUrl: "/ok",
         logoutUrl: "/logout",
         realm: "",  // optional
         language: "en",

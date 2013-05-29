@@ -8,7 +8,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<% if !session[:passwordt].nil?%>
+<% if session[:passwordt]=="true" %>
+ <%= link_to 'Logout','/logout' %> </br>
+<% end %>
+<% end %>
 <%= yield %>
 
 </body>
