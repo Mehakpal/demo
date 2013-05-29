@@ -4,6 +4,7 @@ class UsersController < ApplicationController
  # GET /users/new.json
   def new
     @user = User.new
+    session[:eml]=params[:email]
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @user }
@@ -18,7 +19,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         session[:passwordt]="true"
-        
+        session.delete(:eml)
         format.html { redirect_to '/ok'  }
         
       else
