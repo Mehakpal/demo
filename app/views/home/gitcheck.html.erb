@@ -26,10 +26,27 @@
     }
 
         
-        
-        
+   
     });
     window.google.identitytoolkit.init();
-  }
+
+setTimeout(function(){
+           ok();
+  }, 1000);
+
+}
+
+
+
 </script>
 <script type="text/javascript" src="https://apis.google.com/js/client.js?onload=load"></script>
+<script type="text/javascript">
+function ok() {
+$('#accountchooser').clone().appendTo('.widget-page-body');
+$('.widget-page-body').addClass('resp');
+$(".widget-container").hide();
+
+}
+</script>
+
+
