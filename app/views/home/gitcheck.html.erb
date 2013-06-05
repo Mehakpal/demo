@@ -19,7 +19,15 @@
         language: "en",
         idps: ["Gmail", "AOL", "Hotmail", "Yahoo"],
         tryFederatedFirst: true,	
-        useContextParam: true
+        useContextParam: false,
+        acUiConfig: {
+      title: "Your Site Title",
+      branding: location.protocol+'//'+location.host+'/ok',
+    }
+
+        
+        
+        
     });
     window.google.identitytoolkit.init();
   }
