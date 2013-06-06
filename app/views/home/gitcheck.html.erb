@@ -1,9 +1,14 @@
+                                                                                             
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/jsapi"></script>
 <script type="text/javascript" src="https://www.accountchooser.com/client.js"></script>
 <script type="text/javascript">
-  function load() {
+
+ function load() {
     google.load("identitytoolkit", "2", {packages: ["ac"], language:"en", callback: callback});
   }
   function callback() {
@@ -18,35 +23,27 @@
         realm: "",  // optional
         language: "en",
         idps: ["Gmail", "AOL", "Hotmail", "Yahoo"],
-        tryFederatedFirst: true,	
-        useContextParam: false,
-        acUiConfig: {
-      title: "Your Site Title",
-      branding: location.protocol+'//'+location.host+'/ok',
-    }
+        tryFederatedFirst: true,
+        useContextParam: true,
 
-        
-   
+
+        useCds: true,
+  acUiConfig: {
+  title: 'ordinate',
+  branding: location.protocol+'//'+location.host+'/ok' ,
+  }
     });
     window.google.identitytoolkit.init();
-
-setTimeout(function(){
-           ok();
-  }, 1000);
-
-}
-
-
-
+  }
 </script>
+
 <script type="text/javascript" src="https://apis.google.com/js/client.js?onload=load"></script>
-<script type="text/javascript">
-function ok() {
-$('#accountchooser').clone().appendTo('.widget-page-body');
-$('.widget-page-body').addClass('resp');
-$(".widget-container").hide();
+</head>
+<body>
+</body>
+</html>
 
-}
-</script>
+
+
 
 
