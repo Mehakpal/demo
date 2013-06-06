@@ -1,13 +1,17 @@
 Ordinate::Application.routes.draw do
   resources :entries
-
+  resources :users
   
   get "home/index"
+  match "/signup" => 'users#new'
   match "oauth2callback" => 'home#home'
+  match "/userStatus" => 'home#userStatus'
   match 'gitcheck' => 'home#gitcheck'
   match 'home'=> 'home#home'
   match 'home_check' => 'home#check'
   match 'ok' => 'home#ok'
+  match 'login'=> 'home#login'
+  match 'logout'=> 'home#logout'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

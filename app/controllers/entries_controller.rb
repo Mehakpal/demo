@@ -1,4 +1,6 @@
 class EntriesController < ApplicationController
+before_filter :check_u
+
   # GET /entries
   # GET /entries.json
   def index

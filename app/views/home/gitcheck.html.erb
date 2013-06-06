@@ -1,3 +1,4 @@
+                                                                                             
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
@@ -13,7 +14,7 @@
   function callback() {
     window.google.identitytoolkit.setConfig({
         developerKey: "AIzaSyDn47xvodDSO2Vt_G3Ozj95mKDIO_Fkdxk",
-        callbackUrl: "http://localhost:3000/oauth2callback", // must be a full URL
+        callbackUrl: "http://warm-woodland-6840.herokuapp.com/oauth2callback", // must be a full URL
         userStatusUrl: "/userStatus", // these can just be partial paths
         loginUrl: "/login",
         signupUrl: "/signup",
@@ -35,10 +36,4 @@
     window.google.identitytoolkit.init();
   }
 </script>
-
 <script type="text/javascript" src="https://apis.google.com/js/client.js?onload=load"></script>
-</head>
-<body>
-</body>
-</html>
-

@@ -1,0 +1,32 @@
+class UsersController < ApplicationController
+  # GET /users
+  # GET /users/1.json
+ # GET /users/new.json
+  def new
+    @user = User.new
+    session[:eml]=params[:email]
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @user }
+    end
+  end
+
+  # GET /users/1/edit
+ # POST /users
+  # POST /users.json
+  def create
+    @user = User.new(params[:user])
+    respond_to do |format|
+      if @user.save
+        session[:passwordt]="true"
+        session.delete(:eml)
+        format.html { redirect_to '/ok'  }
+        
+      else
+        format.html { render action: "new" }
+       end
+    end
+  end
+
+end
+
