@@ -1,10 +1,14 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/jsapi"></script>
 <script type="text/javascript" src="https://www.accountchooser.com/client.js"></script>
 <script type="text/javascript">
-  function load() {
-    google.load("identitytoolkit", "2", {packages: ["ac"], callback: callback});
+
+ function load() {
+    google.load("identitytoolkit", "2", {packages: ["ac"], language:"en", callback: callback});
   }
   function callback() {
     window.google.identitytoolkit.setConfig({
@@ -13,15 +17,28 @@
         userStatusUrl: "/userStatus", // these can just be partial paths
         loginUrl: "/login",
         signupUrl: "/signup",
-        homeUrl: "/home",
+        homeUrl: "/ok",
         logoutUrl: "/logout",
         realm: "",  // optional
         language: "en",
         idps: ["Gmail", "AOL", "Hotmail", "Yahoo"],
-        tryFederatedFirst: true,	
-        useContextParam: true
+        tryFederatedFirst: true,
+        useContextParam: true,
+
+
+        useCds: true,
+  acUiConfig: {
+  title: 'ordinate',
+  branding: location.protocol+'//'+location.host+'/ok' ,
+  }
     });
     window.google.identitytoolkit.init();
   }
 </script>
+
 <script type="text/javascript" src="https://apis.google.com/js/client.js?onload=load"></script>
+</head>
+<body>
+</body>
+</html>
+
